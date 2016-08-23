@@ -1,4 +1,6 @@
 Bundle-SymbolicName: react.js
 Bundle-Version: 1.0.0
 Include-Resource: package.json
+Liferay-Export-JS-Submodules:\
+	jquery
 Web-ContextPath: /react-js
