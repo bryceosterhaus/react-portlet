@@ -1,3 +1,5 @@
+import leftPad from 'left-pad';
+
 export default function() {
-	console.log('test');
+	console.log('leftPad', leftPad);
 }

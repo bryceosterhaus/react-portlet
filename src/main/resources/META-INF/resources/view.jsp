@@ -5,5 +5,5 @@
 </p>
 
 <aui:script require="react-js/js/index.es">
-	console.log('module', reactJsJsIndexEs.default);
+	console.log('module', reactJsJsIndexEs.default());
 </aui:script>
