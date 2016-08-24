@@ -1,0 +1,10 @@
+{
+  "name": "hello-react",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2"
+  }
+}
