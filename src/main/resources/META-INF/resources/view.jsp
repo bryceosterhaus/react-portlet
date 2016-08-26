@@ -1,5 +1,7 @@
 <%@ include file="/init.jsp" %>
 
-<p>
-	<b><liferay-ui:message key="hello_react_HelloReact.caption"/></b>
-</p>
+<div id="helloReactApp"></div>
+
+<aui:script>
+	window.App(document.getElementById('helloReactApp'));
+</aui:script>
