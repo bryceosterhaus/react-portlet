@@ -2,6 +2,8 @@
 
 <div id="helloReactApp"></div>
 
-<aui:script>
-	window.App(document.getElementById('helloReactApp'));
+<aui:script require="hello-react/js/main.es">
+	helloReactJsMainEs.default(
+		document.getElementById('helloReactApp')
+	);
 </aui:script>
