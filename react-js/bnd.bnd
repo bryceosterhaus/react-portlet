@@ -1,0 +1,6 @@
+Bundle-Name: React JS Dependencies
+Bundle-SymbolicName: react.js
+Bundle-Version: 1.0.0
+Include-Resource: package.json
+Liferay-JS-Config: /META-INF/resources/config.js
+Web-ContextPath: /react-js
