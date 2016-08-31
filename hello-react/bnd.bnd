@@ -1,3 +1,0 @@
-Bundle-SymbolicName: hello.react
-Bundle-Version: 1.0.0
-Include-Resource: package.json

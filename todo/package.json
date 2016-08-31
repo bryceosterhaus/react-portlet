@@ -1,0 +1,7 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "dependencies": {
+    "babel-preset-react": "^6.11.1"
+  }
+}
