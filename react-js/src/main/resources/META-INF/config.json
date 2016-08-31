@@ -1,0 +1,8 @@
+{
+    "react-dom": {
+        "dependencies": ["react"]
+    },
+    "react": {
+        "dependencies": []
+    }
+}

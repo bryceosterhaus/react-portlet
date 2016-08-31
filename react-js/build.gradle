@@ -1,3 +1,19 @@
+task buildReact(type: Copy)
+
+buildReact {
+	dependsOn npmInstall
+
+	from "node_modules/react/dist/react.js"
+	into new File(sourceSets.main.output.resourcesDir, "META-INF/resources")
+
+	from "node_modules/react-dom/dist/react-dom.js"
+	into new File(sourceSets.main.output.resourcesDir, "META-INF/resources")
+}
+
+classes {
+	dependsOn buildReact
+}
+
 configJSModules {
-	include "**/*.js*"
+	enabled = false
 }
