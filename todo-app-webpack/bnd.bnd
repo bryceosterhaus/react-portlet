@@ -1,0 +1,3 @@
+Bundle-SymbolicName: todo.app.webpack
+Bundle-Version: 1.0.0
+Include-Resource: package.json
