@@ -1,23 +1,33 @@
 var webpack = require('webpack');
 
 module.exports = {
-	entry: "./src/main/resources/META-INF/resources/js/src/main.js",
+	entry: [
+		'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
+		'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+		'./src/main/resources/META-INF/resources/js/src/main.js' // Your appʼs entry point
+	],
 	devServer: {
+		hot: true,
 		port: 3000,
 		proxy: {
-			'**': 'http://localhost:8080'
+			'**': 'http://0.0.0.0:8080'
 		},
-		publicPath: '/o/todo-app-webpack-1.0.0/js/dist/'
+		publicPath: 'http://0.0.0.0:3000/o/todo-app-webpack-1.0.0/js/dist/'
 	},
 	output: {
 		path: './src/main/resources/META-INF/resources/js/dist',
-		filename: "bundle.js"
+		filename: "bundle.js",
+		publicPath: '/o/todo-app-webpack-1.0.0/js/dist/'
 	},
 	module: {
 		loaders: [
 			{
 				exclude: /node_modules/,
-				loader: 'babel',
+				loader: 'react-hot'
+			},
+			{
+				exclude: /node_modules/,
+				loader: ['babel'],
 				query: {
 					presets: ['es2015', 'react']
 				}
@@ -29,6 +39,7 @@ module.exports = {
 			"process.env": {
 				NODE_ENV: JSON.stringify("production")
 			}
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin()
 	]
 };
