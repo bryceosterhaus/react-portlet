@@ -1,0 +1,7 @@
+Bundle-SymbolicName: demo.todo-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.demo.todo.exception,\
+	com.liferay.demo.todo.model,\
+	com.liferay.demo.todo.service,\
+	com.liferay.demo.todo.service.persistence
