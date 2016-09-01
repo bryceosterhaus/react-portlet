@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Liferay Frontend JS React Web
+Bundle-SymbolicName: com.liferay.frontend.js.react.web
+Bundle-Version: 1.0.0
+Created-By: 1.8.0_91 (Oracle Corporation)
+Javac-Debug: on
+Javac-Deprecation: off
+Javac-Encoding: UTF-8
+Liferay-JS-Config: /META-INF/resources/config.js
+Liferay-Releng-Module-Group-Title: Frontend Infrastructure
+Tool: Bnd-3.2.0.201605172007

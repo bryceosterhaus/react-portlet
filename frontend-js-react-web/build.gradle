@@ -1,0 +1,80 @@
+import com.liferay.gradle.util.copy.StripPathSegmentsAction
+
+buildscript {
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.util", version: "latest.release"
+	}
+
+	repositories {
+		maven {
+			url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+		}
+	}
+}
+
+configurations {
+	react
+	reactDOM
+}
+
+task buildReact(type: Copy)
+task buildReactDOM(type: Copy)
+
+String reactVersion = "15.3.0"
+String reactDOMVersion = "15.3.0"
+
+buildReact {
+	eachFile new StripPathSegmentsAction(6)
+
+	from {
+		zipTree(configurations.react.singleFile)
+	}
+
+	include "META-INF/resources/webjars/react/${reactVersion}/dist/react.js"
+
+	includeEmptyDirs = false
+	into "classes/META-INF/resources"
+}
+
+buildReactDOM {
+	dependsOn buildReact
+
+	eachFile new StripPathSegmentsAction(6)
+
+	from {
+		zipTree(configurations.reactDOM.singleFile)
+	}
+
+	include "META-INF/resources/webjars/react-dom/${reactDOMVersion}/dist/react-dom.js"
+
+	includeEmptyDirs = false
+	into "classes/META-INF/resources"
+}
+
+configJSModules {
+	dependsOn buildReactDOM
+
+	include "**/*.js*"
+	moduleConfigFile "empty.json"
+
+	doLast {
+		FileTree fileTree = fileTree(dir: "classes", include: "**/react*")
+
+		fileTree.each {
+			File file ->
+
+			file.text = file.text.replace("/react", "react")
+		}
+
+		delete "classes/META-INF/config.json"
+	}
+}
+
+dependencies {
+	react group: "org.webjars.npm", name: "react", transitive: false, version: reactVersion
+	reactDOM group: "org.webjars.npm", name: "react-dom", transitive: false, version: reactDOMVersion
+}
+
+transpileJS {
+	enabled = false
+}

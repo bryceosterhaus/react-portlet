@@ -1,0 +1,9 @@
+{
+  "name": "mtil",
+  "version": "0.1.3",
+  "description": "Supporting native JavaScript functionality since 2014.",
+  "ignore": [
+    ".*",
+    "*.js*"
+  ]
+}
