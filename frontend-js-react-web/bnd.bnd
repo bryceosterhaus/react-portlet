@@ -1,6 +1,8 @@
 Bundle-Name: Liferay Frontend JS React Web
 Bundle-SymbolicName: com.liferay.frontend.js.react.web
 Bundle-Version: 1.0.0
+Include-Resource: package.json
 Liferay-JS-Config: /META-INF/resources/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Frontend Infrastructure
+Web-ContextPath: /frontend-js-react-web

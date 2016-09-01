@@ -13,5 +13,3 @@ Loader.addModule(
 		path: MODULE_PATH + '/react-dom.js'
 	}
 );
-
-debugger;

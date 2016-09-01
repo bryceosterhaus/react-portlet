@@ -29,6 +29,6 @@ buildWebpack {
 	args = "./node_modules/webpack/bin/webpack.js"
 }
 
-build {
+classes {
 	dependsOn buildWebpack
 }

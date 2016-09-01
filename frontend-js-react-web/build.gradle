@@ -33,7 +33,7 @@ buildReact {
 	include "META-INF/resources/webjars/react/${reactVersion}/dist/react.js"
 
 	includeEmptyDirs = false
-	into "classes/META-INF/resources"
+	into new File(sourceSets.main.output.resourcesDir, "META-INF/resources")
 }
 
 buildReactDOM {
@@ -48,7 +48,7 @@ buildReactDOM {
 	include "META-INF/resources/webjars/react-dom/${reactDOMVersion}/dist/react-dom.js"
 
 	includeEmptyDirs = false
-	into "classes/META-INF/resources"
+	into new File(sourceSets.main.output.resourcesDir, "META-INF/resources")
 }
 
 configJSModules {
@@ -58,13 +58,16 @@ configJSModules {
 	moduleConfigFile "empty.json"
 
 	doLast {
-		FileTree fileTree = fileTree(dir: "classes", include: "**/react*")
+		FileTree fileTree = fileTree(dir: "build", include: "**/react*")
 
 		fileTree.each {
 			File file ->
 
 			file.text = file.text.replace("/react", "react")
 		}
+
+		File configJson = file("build/resources/main/META-INF/config.json")
+		configJson.text = configJson.text.replace("/react", "react")
 
 		delete "classes/META-INF/config.json"
 	}

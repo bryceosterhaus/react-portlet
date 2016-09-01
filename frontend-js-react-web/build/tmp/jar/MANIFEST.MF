@@ -4,9 +4,13 @@ Bundle-Name: Liferay Frontend JS React Web
 Bundle-SymbolicName: com.liferay.frontend.js.react.web
 Bundle-Version: 1.0.0
 Created-By: 1.8.0_91 (Oracle Corporation)
+Include-Resource: package.json
 Javac-Debug: on
 Javac-Deprecation: off
 Javac-Encoding: UTF-8
 Liferay-JS-Config: /META-INF/resources/config.js
 Liferay-Releng-Module-Group-Title: Frontend Infrastructure
+Provide-Capability: osgi.webresource;osgi.webresource=frontend-js-reac
+ t-web;version:Version="1.0.0"
 Tool: Bnd-3.2.0.201605172007
+Web-ContextPath: /frontend-js-react-web
